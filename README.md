@@ -1,56 +1,75 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Documentación del Laboratorio de Login en Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Universidad Tecnológica de Panamá
+**Facultad de Ingeniería de Sistemas Computacionales**  
+**Campus Víctor Levi Sasso**  
+**Asignatura:** Desarrollo Web  
+**Instructora del laboratorio:** Ing. Irina Fong  
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Introducción
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+El presente laboratorio tuvo como propósito desarrollar un primer acercamiento al framework Laravel, comprendiendo su estructura de trabajo y su organización bajo el patrón Modelo–Vista–Controlador (MVC). Durante la práctica se configuró el entorno de desarrollo, se preparó la conexión con la base de datos, se ejecutaron las migraciones necesarias y se implementó el módulo de autenticación con las vistas de login y registro.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Laravel permite organizar mejor una aplicación web mediante la separación de responsabilidades. Los modelos representan la lógica y la interacción con la base de datos, las vistas muestran la interfaz con la que interactúa el usuario, los controladores gestionan la lógica de las peticiones, y las rutas conectan las URL con la funcionalidad correspondiente. Esta arquitectura facilita el mantenimiento, la reutilización del código y una mejor organización del proyecto. Esta explicación se basa en la finalidad del laboratorio y en la instrucción de documentar las principales carpetas en torno a MVC. :contentReference[oaicite:1]{index=1} :contentReference[oaicite:2]{index=2}
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Objetivo del laboratorio
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Implementar un sistema básico de autenticación en Laravel que permitiera el acceso a las vistas de login y registro, comprendiendo al mismo tiempo la estructura del framework y la función de sus componentes principales bajo el modelo MVC. Este objetivo se sustenta en la guía del laboratorio y en el documento de documentación del repositorio. :contentReference[oaicite:3]{index=3} :contentReference[oaicite:4]{index=4}
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+## Requisitos previos
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+Para la ejecución del laboratorio se utilizaron o se requerían los siguientes elementos:
+
+- PHP versión 8.0 o superior
+- Composer
+- Laravel
+- Entorno de desarrollo local como WAMP, XAMPP o Laragon
+- Servidor web Apache o Nginx
+- Base de datos MySQL o MariaDB
+- Editor de código, preferiblemente Visual Studio Code
+- NPM, para la instalación y compilación de dependencias del front-end
+- Sistema operativo Windows
+
+Estos requisitos fueron solicitados en el documento de documentación y además la guía indica que Laravel necesita un entorno como XAMPP o WAMP y Composer para descargar dependencias. :contentReference[oaicite:5]{index=5} :contentReference[oaicite:6]{index=6}
+
+---
+
+## Estructura principal del proyecto en Laravel
+
+### app
+Contiene la lógica principal de la aplicación, incluyendo controladores y otros componentes internos del sistema.
+
+### routes
+Contiene la definición de rutas que permiten enlazar las URL con la lógica del sistema.
+
+### resources/views
+Contiene las vistas del proyecto, es decir, las páginas que se muestran al usuario, como login y register.
+
+### database
+Incluye migraciones, seeders y otros archivos relacionados con la estructura de la base de datos.
+
+### public
+Es la carpeta pública desde la cual se sirve la aplicación en el navegador.
+
+### config
+Contiene los archivos de configuración general del proyecto.
+
+La inclusión de esta explicación está pedida de forma explícita en el documento de documentación, donde se solicita una introducción que explique las carpetas principales en torno a MVC: controladores, rutas, vistas y modelos. :contentReference[oaicite:7]{index=7}
+
+---
+
+## Flujo de comandos utilizados
+
+A continuación, se documenta el flujo principal utilizado durante el laboratorio, siguiendo la guía proporcionada:
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
-```
-
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
+laravel new AhorasiLaravel
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
